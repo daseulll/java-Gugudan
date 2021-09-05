@@ -1,21 +1,29 @@
 import java.util.Scanner;
 
 public class GugudanVersion1 {
+	public static int[] calculate(int n, int max_num) {
+		int[] result = new int[max_num];
+		for (int j = 0; j < max_num; j++) {
+			result[j] = n * (j + 1);
+			
+		}
+		return result;
+	}
+	
+	public static void print(int[] result) {
+		for (int i = 0; i < result.length; i++) {
+			System.out.println(result[i]);
+		}
+	}
+	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		int num = scanner.nextInt();
+		int max_num = scanner.nextInt();
 		scanner.close();
 		
-		int[] result = new int[num];
-		for (int i = 2; i <= num; i ++) {
-			for (int j = 0; j < num; j++) {
-				result[j] = i * (j + 1);
-				
-			}
-			
-			for (int k =0; k < result.length; k++) {
-				System.out.println(result[k]);
-			}
+		for (int i = 2; i <= max_num; i ++) {
+			int[] result = calculate(i, max_num);	
+			print(result);
 		}
 	}
 }
